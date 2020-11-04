@@ -41,6 +41,10 @@ export default {
       e.target.firstElementChild.play();
       let prev = this.guess.length;
       this.guess.push(e.target.id);
+      if(this.guess.length > this.answer.length){
+        this.checkGuess();
+        return;
+      }
       timeout = setTimeout(()=> {
         if(this.guess.length === prev || this.guess.length < this.answer.length){
           this.checkGuess();
